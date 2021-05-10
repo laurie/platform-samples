@@ -25,6 +25,15 @@ post '/payload' do
   end
 end
 
+
+require 'sinatra'
+require 'json'
+
+post '/payload' do
+  push = JSON.parse(request.body.read)
+  puts "I got some JSON: #{push.inspect}"
+end
+
 # To authenticate as a GitHub App, generate a private key. Use this key to sign
 # a JSON Web Token (JWT), and encode using the RS256 algorithm. GitHub checks 
 # that the request is authenticated by verifying the token with the
